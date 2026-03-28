@@ -1,0 +1,54 @@
+class FlatsController < ApplicationController
+  before_action :set_flat, only: [ :show, :edit, :update, :destroy ]
+  def index
+    if params[:query].present?
+      # Use SQL 'LIKE' to search for the name
+      # The % symbols mean "find this text anywhere in the string"
+      @flats = Flat.where("name LIKE ?", "%#{params[:query]}%")
+    else
+      @flats = Flat.all
+    end
+  end
+
+  def show
+    # @flat = Flat.find(params[:id])
+  end
+
+  def new
+    @flat = Flat.new
+  end
+
+  def create
+    @flat = Flat.new(flat_params)
+    @flat.save
+    redirect_to flat_path(@flat)
+  end
+
+  def edit
+    # @flat = Flat.find(params[:id])
+  end
+
+  def update
+    # @flat = Flat.find(params[:id])
+    @flat.update(flat_params)
+    redirect_to flat_path(@flat)
+  end
+
+  def destroy
+    # @flat = Flat.find(params[:id])
+    @flat.destroy
+    # No need for app/views/restaurants/destroy.html.erb
+    redirect_to flats_path, status: :see_other
+  end
+
+  private
+
+  def set_flat
+    @flat = Flat.find(params[:id])
+  end
+
+  def flat_params
+    # Add :picture_url to the list of permitted symbols
+    params.require(:flat).permit(:name, :address, :description, :price_per_night, :number_of_guests, :picture_url)
+  end
+end

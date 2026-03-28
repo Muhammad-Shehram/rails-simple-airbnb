@@ -1,0 +1,22 @@
+
+<%# new code here %>
+<div class="form-container">
+  <%= simple_form_for(flat) do |f| %>
+    <%= f.input :name, placeholder: "Spacious Garden Flat" %>
+    <%= f.input :address, placeholder: "10 Clifton Gardens London W9 1DT" %>
+    <%= f.input :description, placeholder: "Describe your beautiful place..." %>
+    <div class="row">
+      <div class="col-6">
+        <%= f.input :price_per_night, label: "Price (€)" %>
+      </div>
+      <div class="col-6">
+        <%= f.input :number_of_guests %>
+      </div>
+    </div>
+    <%= f.input :picture_url, placeholder: "https://images.unsplash.com/..." %>
+
+    <div class="mt-4">
+      <%= f.button :submit, class: "btn-airbnb w-100" %>
+    </div>
+  <% end %>
+</div>
