@@ -31,10 +31,6 @@ image_urls = [
 ]
 
 
-# https://images.unsplash.com/photo-1554995207 first image
-# https://images.unsplash.com/photo-1560448204-e02f11c3d0e2 ?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8cGVudGhvdXNlfGVufDB8fDB8fHww
-
-
 # Pro-Tip: Optimization parameters for Unsplash
 # auto=format (chooses best file type), fit=crop (no stretching), w=800 (perfect width)
 params = "?auto=format&fit=crop&w=800&q=80"
